@@ -9,10 +9,10 @@ public class RPG_GAME {
     public static void start(){
         Boss boss = new Boss(700,50);
         Warrior warrior = new Warrior(300, 25, "Minato");
-        Medic doc = new Medic(200, 5, 15, "Tsunada");
+        Medic doc = new Medic(200, 5, 15, "Tsunade");
         Magic magic = new Magic(250, 25, "Naruto");
         Berserk berserk = new Berserk(300, 25, "Kakashi");
-        Medic assistant = new Medic(250,10,5, "Sacura");
+        Medic assistant = new Medic(250,10,5, "Sakura");
 
         Hero [] heroes = {warrior,doc,magic,berserk,assistant};
 
@@ -22,19 +22,9 @@ public class RPG_GAME {
             round(heroes, boss );
         }
     }
-    public static int MagicIndex(Hero[] heroes) {
-        int MagicIndex = 0;
-        for (int i = 0; i < heroes.length; i++) {
-            if (heroes[i].getClass().getName() == "Magic") {
-                MagicIndex = i;
-            }
-        }
-        return MagicIndex;
-    }
 
     private static void round(Hero[] heroes, Boss boss){
         roundNumber++;
-        printStatistics(heroes, boss);
         bossHits(heroes, boss);
         heroHits(heroes, boss);
         applySuperPowers(heroes, boss);
